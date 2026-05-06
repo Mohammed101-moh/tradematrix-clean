@@ -5199,6 +5199,13 @@
           date: new Date().toISOString()
         });
         window.localStorage.setItem("waitlistUsers", JSON.stringify(storedUsers));
+        fetch("/api/waitlist", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ email: emailValue })
+});
         setSubmittingState(submitButton, false, true);
         window.setTimeout(() => {
           openPricingModal();
