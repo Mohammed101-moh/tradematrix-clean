@@ -5204,7 +5204,13 @@
   headers: {
     "Content-Type": "application/json"
   },
-  body: JSON.stringify({ email: emailValue })
+  body: JSON.stringify({
+  name: nameValue,
+  email: emailValue,
+  traderType: localStorage.getItem("traderType") || "",
+  market: localStorage.getItem("market") || "",
+  price: localStorage.getItem("price") || ""
+})
 });
         setSubmittingState(submitButton, false, true);
         window.setTimeout(() => {
