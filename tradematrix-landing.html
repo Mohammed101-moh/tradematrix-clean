@@ -5067,11 +5067,8 @@
           pulseOnboardingButton(button);
           const challenge = button.dataset.challenge || "";
           window.setTimeout(() => {
-            window.localStorage.setItem(onboardingStorageKey, JSON.stringify({
-              traderType: onboardingState.traderType,
-              challenge,
-              date: new Date().toISOString()
-            }));
+            window.localStorage.setItem("traderType", onboardingState.traderType);
+localStorage.setItem("market", challenge);
             closeOnboarding();
           }, 90);
         });
@@ -5092,10 +5089,7 @@
         button.addEventListener("click", () => {
           pulseOnboardingButton(button);
           const preference = button.dataset.pricing || "";
-          window.localStorage.setItem("tradematrxPricingPreference", JSON.stringify({
-            value: preference,
-            date: new Date().toISOString()
-          }));
+          window.localStorage.setItem("price", preference);
 
           pricingOptions.forEach((option) => {
             option.disabled = true;
