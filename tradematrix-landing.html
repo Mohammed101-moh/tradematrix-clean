@@ -5239,25 +5239,5 @@
     initOnboarding();
     initPricingModal();
   </script>
-<script>
-document.querySelectorAll("form").forEach(form => {
-  form.addEventListener("submit", async function (e) {
-  e.preventDefault();
-
-  const emailInput = document.querySelector('input[type="email"]');
-  const email = emailInput ? emailInput.value.trim() : "";
-
-  const response = await fetch("/api/waitlist", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ email })
-  });
-
-  const data = await response.json();
-  alert(data.message);
-});
-</script>
 </body>
 </html>
